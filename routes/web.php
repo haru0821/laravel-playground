@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DesignPatternTestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::prefix('design-pattern')->group(function () {
+    Route::get('/singleton', [DesignPatternTestController::class, 'singleton']);
 });
