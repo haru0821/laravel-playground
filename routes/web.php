@@ -20,4 +20,5 @@ Route::get('/', function () {
 
 Route::prefix('design-pattern')->group(function () {
     Route::get('/singleton', [DesignPatternTestController::class, 'singleton']);
+    Route::get('/prototype', [DesignPatternTestController::class, 'prototype']);
 });
