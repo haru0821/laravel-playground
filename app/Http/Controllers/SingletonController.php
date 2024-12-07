@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-// 생성_싱글턴
-// 클래스의 인스턴스를 단 하나만 생성하는 것을 보증하는 패턴
 class SingletonController extends Controller
 {
     private static $instance = null;
@@ -24,12 +22,12 @@ class SingletonController extends Controller
     // 만들어진 객체의 외부 복제 방지
     public function __clone() {
         // 예외를 던져서 clone을 방지
-        throw new \Exception("Cannot clone a singleton object");
+        throw new \Exception("복제할 수 없는 오브젝트 입니다!");
     }
 
     // 만들어진 객체의 직렬화(serialize) 이후, 역직렬화(unserialize)할 때의 복원 방지
     public function __wakeup() {
         // 예외를 던져서 unserialize()를 방지
-        throw new \Exception("Cannot unserialize a singleton object");
+        throw new \Exception("역직렬화할 수 없는 오브젝트 입니다!");
     }
 }

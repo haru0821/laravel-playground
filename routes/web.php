@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\DesignPatternTestController;
+use App\Http\Controllers\DesignPatternController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +19,7 @@ Route::get('/', function () {
 });
 
 Route::prefix('design-pattern')->group(function () {
-    Route::get('/singleton', [DesignPatternTestController::class, 'singleton']);
-    Route::get('/prototype', [DesignPatternTestController::class, 'prototype']);
+    Route::get('/singleton', [DesignPatternController::class, 'singleton']);
+    Route::get('/prototype', [DesignPatternController::class, 'prototype']);
+    Route::get('/factory-method', [DesignPatternController::class, 'factoryMethod']);
 });

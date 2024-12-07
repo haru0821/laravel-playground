@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-// 생성_프로토타입
-// 객체 생성 시, 기존 객체를 복사해 새로운 객체를 생성하는 패턴
 class PrototypeController extends Controller
 {
     public $info = "정보 없음";
