@@ -1,9 +1,9 @@
 <?php
 
-namespace App\AbstractFactory;
+namespace App\DesignPattern\AbstractFactory;
 
-use App\AbstractFactory\RedRobot;
-use App\AbstractFactory\RedRobotCreator;
+use App\DesignPattern\AbstractFactory\RedRobot;
+use App\DesignPattern\AbstractFactory\RedRobotCreator;
 
 class RedRobotFactory implements RobotBaseFactory
 {

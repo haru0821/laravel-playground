@@ -1,9 +1,9 @@
 <?php
 
-namespace App\AbstractFactory;
+namespace App\DesignPattern\AbstractFactory;
 
-use App\AbstractFactory\BlueRobot;
-use App\AbstractFactory\BlueRobotCreator;
+use App\DesignPattern\AbstractFactory\BlueRobot;
+use App\DesignPattern\AbstractFactory\BlueRobotCreator;
 
 class BlueRobotFactory implements RobotBaseFactory
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\FactoryMethod;
+namespace App\DesignPattern\FactoryMethod;
 
 // 카레의 종류가 늘어나도 해당 메서드의 수정X
 abstract class CurryBaseFactory

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\AbstractFactory;
+namespace App\DesignPattern\AbstractFactory;
 
 class BlueRobot implements Robot
 {

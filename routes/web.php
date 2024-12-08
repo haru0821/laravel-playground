@@ -23,4 +23,5 @@ Route::prefix('design-pattern')->group(function () {
     Route::get('/prototype', [DesignPatternController::class, 'prototype']);
     Route::get('/factory-method', [DesignPatternController::class, 'factoryMethod']);
     Route::get('/abstract-factory', [DesignPatternController::class, 'abstractFactory']);
+    Route::get('/builder', [DesignPatternController::class, 'builder']);
 });

@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\AbstractFactory\BlueRobotFactory;
-use App\AbstractFactory\RedRobotFactory;
+use App\DesignPattern\AbstractFactory\BlueRobotFactory;
+use App\DesignPattern\AbstractFactory\RedRobotFactory;
+use App\DesignPattern\Builder\Builder;
+use App\DesignPattern\FactoryMethod\JapanCurryFactory;
+use App\DesignPattern\FactoryMethod\IndiaCurryFactory;
+use App\DesignPattern\Prototype\Prototype;
+use App\DesignPattern\Singleton\Singleton;
 use App\Http\Controllers\PrototypeController;
-use App\Http\Controllers\SingletonController;
-use App\FactoryMethod\JapanCurryFactory;
-use App\FactoryMethod\IndiaCurryFactory;
 use Illuminate\Http\Request;
 
 class DesignPatternController extends Controller
@@ -15,8 +17,8 @@ class DesignPatternController extends Controller
     // 생성_싱글턴
     // 클래스의 인스턴스를 단 하나만 생성하는 것을 보증하는 패턴
     public function singleton () {
-        $singleton1 = SingletonController::getInstance();
-        $singleton2 = SingletonController::getInstance();
+        $singleton1 = Singleton::getInstance();
+        $singleton2 = Singleton::getInstance();
         var_dump($singleton1 === $singleton2); // true
         // 역직렬화 방지
         $serialized = serialize($singleton1);
@@ -28,13 +30,12 @@ class DesignPatternController extends Controller
     // 생성_프로토타입
     // 객체 생성 시, 기존 객체를 복사해 새로운 객체를 생성하는 패턴
     public function prototype () {
-        $defaultPrototype = new PrototypeController();
+        $defaultPrototype = new Prototype();
         $prototype1 = clone $defaultPrototype; // 프로토타입1
         $prototype2 = clone $defaultPrototype; // 프로토타입2
         $prototype1->info = '프로토타입1의 정보';
         $prototype2->info = '프로토타입2의 정보';
-        var_dump($prototype1);
-        var_dump($prototype2);
+        var_dump($defaultPrototype === $prototype1); // false
     }
 
     // 생성_팩토리메서드
@@ -67,4 +68,22 @@ class DesignPatternController extends Controller
         $redRobot->say();
         $redRobotCreator->work();
    }
+
+    // 생성_빌더
+    // 객체 생성의 복잡한 과정을 분리하는 패턴
+    public function builder () {
+        // 생성자에서 데이터를 세팅한다면, 직관성 및 유연성이 부족하다
+        // $builder = new Builder(1, 30, 5, 'Haru');
+
+        // 메서드 체이닝 방식을 통해, 해당 객체가 어떤 데이터를 요하는지 직관적으로 파악 가능
+        // 각 데이터별 가공, 조건 등의 추가 로직을 분리해서 관리 가능
+        $builder = new Builder();
+        $builder = $builder->setId(1)
+                    ->setAge(30)
+                    ->setGrade(5)
+                    ->setName('Haru');
+
+        echo $builder->getName(); // Haru
+    }
+
 }

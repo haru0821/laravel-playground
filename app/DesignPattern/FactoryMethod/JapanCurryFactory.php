@@ -1,8 +1,8 @@
 <?php
 
-namespace App\FactoryMethod;
+namespace App\DesignPattern\FactoryMethod;
 
-use App\FactoryMethod\JapanCurry;
+use App\DesignPattern\FactoryMethod\JapanCurry;
 
 class JapanCurryFactory extends CurryBaseFactory
 {
