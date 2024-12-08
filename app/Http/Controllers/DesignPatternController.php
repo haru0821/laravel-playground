@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\AbstractFactory\BlueRobotFactory;
+use App\AbstractFactory\RedRobotFactory;
 use App\Http\Controllers\PrototypeController;
 use App\Http\Controllers\SingletonController;
 use App\FactoryMethod\JapanCurryFactory;
@@ -44,5 +46,25 @@ class DesignPatternController extends Controller
         $indiaCurryFactory = new IndiaCurryFactory();
         $indiaCurry = $indiaCurryFactory->newOrderCurry(5); // 맵기 5의 인도식 카레 주문
         echo $indiaCurry->addNaan(); // 인도 난 추가
+   }
+
+    // 생성_추상팩토리
+    // 서로 관련이 있는 객체를 만들기 위한 추상클래스(or 인터페이스)를 제공하는 패턴
+    public function abstractFactory () {
+        // 관련 객체를 만들기 위한 팩토리 객체 생성
+        $blueRobotFactory = new BlueRobotFactory();
+        // 팩토리 객체로부터 객체1 생성
+        $blueRobot = $blueRobotFactory->createRobot();
+        // 팩토리 객체로부터 객체2 생성
+        $blueRobotCreator = $blueRobotFactory->createRobotCreator();
+        // 객체별 처리 실행
+        $blueRobot->say();
+        $blueRobotCreator->work();
+
+        $redRobotFactory = new RedRobotFactory();
+        $redRobot = $redRobotFactory->createRobot();
+        $redRobotCreator = $redRobotFactory->createRobotCreator();
+        $redRobot->say();
+        $redRobotCreator->work();
    }
 }
