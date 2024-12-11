@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\DesignPattern\AbstractFactory\BlueRobotFactory;
 use App\DesignPattern\AbstractFactory\RedRobotFactory;
+use App\DesignPattern\Adapter\MallardDuck;
+use App\DesignPattern\Adapter\WildTurkey;
+use App\DesignPattern\Adapter\TurkeyAdapter;
 use App\DesignPattern\Builder\Builder;
 use App\DesignPattern\FactoryMethod\JapanCurryFactory;
 use App\DesignPattern\FactoryMethod\IndiaCurryFactory;
@@ -84,6 +87,24 @@ class DesignPatternController extends Controller
                     ->setName('Haru');
 
         echo $builder->getName(); // Haru
+    }
+
+    // 구조_어댑터 (= Wrapper)
+    // 호환되지 않는 인터페이스를 가진 클래스가 서로 통신할 수 있도록 해주는 구조적인 패턴
+    public function adapter () {
+        // Duck을 생성
+        $duck = new MallardDuck();
+        // Turkey를 생성
+        $turkey = new WildTurkey();
+        // 생성한 Turkey를 어댑터를 통하여 Duck 을 이용하도록 변환
+        $turkeyAdapter = new TurkeyAdapter($turkey);
+        
+        $turkey->goddle(); echo "<br>";
+        $turkey->fly(); echo "<br>";
+        $duck->quack(); echo "<br>";
+        $duck->fly(); echo "<br>";
+        $turkeyAdapter->quack(); echo "<br>";
+        $turkeyAdapter->fly(); echo "<br>";
     }
 
 }

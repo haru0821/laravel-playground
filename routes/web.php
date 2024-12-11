@@ -26,7 +26,7 @@ Route::prefix('design-pattern')->group(function () {
     Route::get('/factory-method', [DesignPatternController::class, 'factoryMethod']);
     Route::get('/abstract-factory', [DesignPatternController::class, 'abstractFactory']);
     Route::get('/builder', [DesignPatternController::class, 'builder']);
-    Route::get('/builder', [DesignPatternController::class, 'builder']);
+    Route::get('/adapter', [DesignPatternController::class, 'adapter']);
 });
 
 // 레디스
