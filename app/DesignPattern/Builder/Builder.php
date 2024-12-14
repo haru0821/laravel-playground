@@ -17,39 +17,47 @@ class Builder
     //     $this->name = $name;
     // }
 
-    public function setId($id) {
+    public function setId($id)
+    {
         $this->id = $id;
         return $this;
     }
 
-    public function setAge($age) {
+    public function setAge($age)
+    {
         $this->age = $age;
         return $this;
     }
     
-    public function setGrade($grade) {
+    public function setGrade($grade)
+    {
         $this->grade = $grade;
         return $this;
     }
 
-    public function setName($name) {
+    public function setName($name)
+    {
         $this->name = $name;
         return $this;
     }
 
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function getAge() {
+    public function getAge()
+    {
         return $this->age;
     }
 
-    public function getGrade() {
+    public function getGrade()
+    {
         return $this->grade;
     }
 
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
     }
 

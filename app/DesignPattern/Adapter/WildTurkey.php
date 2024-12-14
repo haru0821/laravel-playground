@@ -4,12 +4,14 @@ namespace App\DesignPattern\Adapter;
 
 class WildTurkey implements Turkey
 {
-  public function goddle() {
-    echo 55;
+  public function goddle()
+  {
+    echo 'WildTurkey : gooddle';
   }
 
-  public function fly() {
-    echo 66;
+  public function fly()
+  {
+    echo 'WildTurkey : fly';
   }
 
 }

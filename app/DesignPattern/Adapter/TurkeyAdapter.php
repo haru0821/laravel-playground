@@ -9,16 +9,19 @@ class TurkeyAdapter implements Duck
 {
     public $turkey;
 
-    public function TurkeyAdapter(Turkey $turkey) {
+    public function __construct (Turkey $turkey)
+    {
         $this->turkey = $turkey;
         $this->turkey->goddle();
     }
 
-    public function quack() {
+    public function quack()
+    {
         $this->turkey->goddle();
     }
     
-    public function fly() {
+    public function fly()
+    {
         for ($i=1; $i<=3; $i++) {
             $this->turkey->fly();
         }

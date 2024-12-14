@@ -4,12 +4,14 @@ namespace App\DesignPattern\Adapter;
 
 class MallardDuck implements Duck
 {
-  public function quack() {
-    echo 33;
+  public function quack()
+  {
+    echo 'MallardDuck : quack';
   }
 
-  public function fly() {
-    echo 44;
+  public function fly()
+  {
+    echo 'MallardDuck : fly';
   }
 
 }

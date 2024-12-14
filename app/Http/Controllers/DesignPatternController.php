@@ -11,6 +11,7 @@ use App\DesignPattern\Builder\Builder;
 use App\DesignPattern\FactoryMethod\JapanCurryFactory;
 use App\DesignPattern\FactoryMethod\IndiaCurryFactory;
 use App\DesignPattern\Prototype\Prototype;
+use App\DesignPattern\Proxy\Proxy;
 use App\DesignPattern\Singleton\Singleton;
 use App\Http\Controllers\PrototypeController;
 use Illuminate\Http\Request;
@@ -98,13 +99,24 @@ class DesignPatternController extends Controller
         $turkey = new WildTurkey();
         // 생성한 Turkey를 어댑터를 통하여 Duck 을 이용하도록 변환
         $turkeyAdapter = new TurkeyAdapter($turkey);
-        
         $turkey->goddle(); echo "<br>";
         $turkey->fly(); echo "<br>";
         $duck->quack(); echo "<br>";
         $duck->fly(); echo "<br>";
+        // Duck의 함수로 Turkey의 처리를 수행 가능
         $turkeyAdapter->quack(); echo "<br>";
         $turkeyAdapter->fly(); echo "<br>";
     }
+
+    // 구조_프록시
+    // 특정한 객체로의 접근을 제어하기 위한 대리인(proxy)을 제공하는 패턴
+    public function proxy () {
+        // 프록시 객체를 생성
+        $proxy = new Proxy();
+        // 처리하고자 하는 객체가 아닌 프록시 객체 내부의 메서드를 호출
+        $proxy->work();
+    }
+
+
 
 }
