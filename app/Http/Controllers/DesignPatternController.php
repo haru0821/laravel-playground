@@ -8,6 +8,7 @@ use App\DesignPattern\Adapter\MallardDuck;
 use App\DesignPattern\Adapter\WildTurkey;
 use App\DesignPattern\Adapter\TurkeyAdapter;
 use App\DesignPattern\Builder\Builder;
+use App\DesignPattern\Facade\Facade;
 use App\DesignPattern\FactoryMethod\JapanCurryFactory;
 use App\DesignPattern\FactoryMethod\IndiaCurryFactory;
 use App\DesignPattern\Prototype\Prototype;
@@ -117,6 +118,13 @@ class DesignPatternController extends Controller
         $proxy->work();
     }
 
-
+    // 구조_퍼사드
+    // 복잡한 구조의 서브 시스템을 하나의 인터페이스로 통합/관리하여 사용할 수 있게끔 해주는 패턴
+    public function facade () {
+        // 퍼사드 객체를 생성
+        $facade = new Facade();
+        // 시스템에 문제가 발생했을 때의 독립된 클래스의 처리를 퍼사드 객체로 묶어서 일괄 처리
+        $facade->run();
+    }
 
 }
